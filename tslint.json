@@ -1,0 +1,17 @@
+{
+  "extends": ["tslint:latest", "tslint-config-prettier"],
+  "rules": {
+    "newline-before-return": true,
+    "arrow-parens": true,
+    "semicolon": [true, "never"],
+    "quotemark": [true, "single", "jsx-double"],
+    "no-implicit-dependencies": [true, ["~"]],
+    "no-submodule-imports": [true, "~", "next"],
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true
+      }
+    ]
+  }
+}
