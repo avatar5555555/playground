@@ -1,6 +1,9 @@
 import App, { Container } from 'next/app'
 import React from 'react'
+import { ApolloProvider } from 'react-apollo'
 import { addLocaleData, IntlProvider } from 'react-intl'
+
+import { withApollo } from '~/hocs'
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens
@@ -11,7 +14,7 @@ if (typeof window !== 'undefined' && window.ReactIntlLocaleData) {
   })
 }
 
-export default class MyApp extends App {
+class MyApp extends App {
   public static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 
@@ -28,15 +31,19 @@ export default class MyApp extends App {
   }
 
   public render() {
-    const { Component, pageProps, locale, messages } = this.props
+    const { Component, pageProps, locale, messages, apolloClient } = this.props
     const now = Date.now()
 
     return (
       <Container>
-        <IntlProvider locale={locale} messages={messages} initialNow={now}>
-          <Component {...pageProps} />
-        </IntlProvider>
+        <ApolloProvider client={apolloClient}>
+          <IntlProvider locale={locale} messages={messages} initialNow={now}>
+            <Component {...pageProps} />
+          </IntlProvider>
+        </ApolloProvider>
       </Container>
     )
   }
 }
+
+export default withApollo(MyApp)

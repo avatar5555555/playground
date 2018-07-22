@@ -5,3 +5,5 @@ npm-debug.log*
 .env
 .next/
 lang/.messages/
+AppSync.json
+AppSync.js
