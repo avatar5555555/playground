@@ -2,25 +2,44 @@ import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
-  public static getInitialProps({ renderPage }) {
+  public static async getInitialProps(context) {
+    // intl
+    const {
+      req: { locale, localeDataScript },
+      renderPage
+    } = context
+
+    // styled-components
     const sheet = new ServerStyleSheet()
-    const page = renderPage((App) => (props) =>
-      sheet.collectStyles(<App {...props} />)
-    )
+    const page = renderPage((App) => (p) => sheet.collectStyles(<App {...p} />))
     const styleTags = sheet.getStyleElement()
 
-    return { ...page, styleTags }
+    return {
+      ...page,
+      locale,
+      localeDataScript,
+      styleTags
+    }
   }
 
   public render() {
+    const { locale, localeDataScript, styleTags } = this.props
+
+    // Polyfill Intl API for older browsers
+    const polyfill = `https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.${locale}`
+
     return (
       <html>
         <Head>
           <title>My playground</title>
-          {this.props.styleTags}
+          {styleTags}
         </Head>
         <body>
           <Main />
+
+          <script src={polyfill} />
+          <script dangerouslySetInnerHTML={{ __html: localeDataScript }} />
+
           <NextScript />
         </body>
       </html>

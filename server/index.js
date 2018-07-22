@@ -1,6 +1,8 @@
 const express = require('express')
 const next = require('next')
 
+const createLocaleMiddleware = require('./localeMiddleware')
+
 require('../env-vars')
 
 const { NODE_ENV, SERVER_PORT } = process.env
@@ -14,6 +16,8 @@ app
   .prepare()
   .then(() => {
     const server = express()
+
+    server.use(createLocaleMiddleware(isDev))
 
     server.get('*', (req, res) => {
       return handle(req, res)

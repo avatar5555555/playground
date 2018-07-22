@@ -8,7 +8,7 @@ export const withLayoutHoc = (W) => {
     public render() {
       return (
         <Layout>
-          <W />
+          <W {...this.props} />
         </Layout>
       )
     }

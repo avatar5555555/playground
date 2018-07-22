@@ -1,0 +1,4 @@
+{
+	"description": "Это пример интеграции React Intl с Next.js ",
+	"greeting": "Привет, Мир!"
+}

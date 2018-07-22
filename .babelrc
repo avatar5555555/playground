@@ -20,6 +20,12 @@
         "preprocess": false
       }
     ],
-    ["ramda"]
+    ["ramda"],
+    [
+      "react-intl",
+      {
+        "messagesDir": "lang/.messages/"
+      }
+    ]
   ]
 }
