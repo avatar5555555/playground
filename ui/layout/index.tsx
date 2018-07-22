@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-const Root = styled.div``
+const Root = styled.div`
+  height: 100%;
+`
 
 interface ILayoutProps {
   children: React.ReactNode

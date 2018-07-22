@@ -21,6 +21,7 @@
     "@types/next": "^6.0.4",
     "@types/ramda": "^0.25.35",
     "@types/react": "^16.4.6",
+    "@types/yup": "^0.24.7",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-ramda": "^1.6.1",
     "babel-plugin-styled-components": "^1.5.1",
@@ -39,13 +40,17 @@
   "dependencies": {
     "@zeit/next-typescript": "^1.1.0",
     "express": "^4.16.3",
+    "final-form": "^4.8.3",
     "hoist-non-react-statics": "^3.0.0-rc.1",
     "next": "^6.1.1",
     "ramda": "^0.25.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "reakit": "^0.12.0",
-    "styled-components": "^3.3.3"
+    "react-final-form": "^3.6.5",
+    "smooth-ui": "^4.3.0",
+    "styled-components": "^3.3.3",
+    "styled-normalize": "^8.0.0",
+    "yup": "^0.26.0"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [

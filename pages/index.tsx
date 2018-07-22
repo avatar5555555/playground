@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import { Base, Button } from 'reakit'
+import { Typography } from 'smooth-ui'
 
 import { page } from '~/hocs'
 
 class Index extends Component {
   public render() {
-    return (
-      <Base>
-        <Button>Hello world</Button>
-      </Base>
-    )
+    return <Typography variant="h1">Hello world</Typography>
   }
 }
 

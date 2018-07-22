@@ -1,7 +1,7 @@
 const express = require('express')
 const next = require('next')
 
-require('../env')
+require('../env-vars')
 
 const { NODE_ENV, SERVER_PORT } = process.env
 
