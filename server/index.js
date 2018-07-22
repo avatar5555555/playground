@@ -1,7 +1,7 @@
 const express = require('express')
 const next = require('next')
 
-require('../dotenv')
+require('../env')
 
 const { NODE_ENV, SERVER_PORT } = process.env
 

@@ -1,7 +1,7 @@
 const withTypescript = require('@zeit/next-typescript')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
-require('./dotenv')
+require('../env')
 
 const { ANALYZE } = process.env
 
