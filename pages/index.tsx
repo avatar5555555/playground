@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
+import { Base, Button } from 'reakit'
 
-import { Layout } from '~/ui'
+import { page } from '~/hocs'
 
 class Index extends Component {
   public render() {
-    return <Layout>Hello world</Layout>
+    return (
+      <Base>
+        <Button>Hello world</Button>
+      </Base>
+    )
   }
 }
 
-export default Index
+export default page(Index)

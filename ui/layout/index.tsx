@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-const Root = styled.div`
-  color: red;
-`
+const Root = styled.div``
 
 interface ILayoutProps {
   children: React.ReactNode

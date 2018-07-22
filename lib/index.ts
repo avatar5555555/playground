@@ -1,0 +1,1 @@
+export { hoistStatics } from './hoistStatic'
