@@ -1,15 +1,10 @@
 {
-  "presets": [
-    "next/babel",
-    "@zeit/next-typescript/babel"
-  ],
+  "presets": ["next/babel", "@zeit/next-typescript/babel"],
   "plugins": [
     [
       "module-resolver",
       {
-        "root": [
-          "./"
-        ],
+        "root": ["./"],
         "alias": {
           "~/ui": "./ui",
           "~/hocs": "./hocs",
@@ -25,8 +20,6 @@
         "preprocess": false
       }
     ],
-    [
-      "ramda"
-    ]
+    ["ramda"]
   ]
 }
