@@ -6,6 +6,9 @@ import { AUTH_TYPE } from 'aws-appsync/lib/link/auth-link'
 import fetch from 'node-fetch'
 
 import AppSyncConfig from '../../AppSync'
+import awsExports from '../../aws-exports'
+
+Auth.configure(awsExports)
 
 let apolloClient = null
 

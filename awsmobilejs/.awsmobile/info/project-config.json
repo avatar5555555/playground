@@ -1,0 +1,6 @@
+{
+  "SourceDir": ".",
+  "DistributionDir": ".next",
+  "BuildCommand": "npm run build",
+  "StartCommand": "npm run start"
+}
