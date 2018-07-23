@@ -4,22 +4,33 @@ import { getDataFromTree } from 'react-apollo'
 
 import initApollo from './init-apollo'
 
+const getToken = () => 'token'
+
 export const withApollo = (App) => {
-  return class Apollo extends React.Component {
+  return class Apollo extends React.Component<{ apolloState: any }> {
     public static displayName = 'withApollo(App)'
 
-    public static async getInitialProps(ctx) {
-      const { Component, router } = ctx
+    public static async getInitialProps(context) {
+      const { Component, router, ctx } = context
+      const { res } = ctx
+
+      // Run all GraphQL queries in the component tree
+      // and extract the resulting data
+      const apollo = initApollo({}, { getToken })
+
+      ctx.apolloClient = apollo
 
       let appProps = {}
 
       if (App.getInitialProps) {
-        appProps = await App.getInitialProps(ctx)
+        appProps = await App.getInitialProps(context)
       }
 
-      // Run all GraphQL queries in the component tree
-      // and extract the resulting data
-      const apollo = initApollo()
+      if (res && res.finished) {
+        // When redirecting, the response is finished.
+        // No point in continuing to render
+        return {}
+      }
 
       const isServer = !process.browser
 
@@ -56,7 +67,7 @@ export const withApollo = (App) => {
       }
     }
 
-    public apolloClient = initApollo(this.props.apolloState)
+    public apolloClient = initApollo(this.props.apolloState, { getToken })
 
     public render() {
       return <App {...this.props} apolloClient={this.apolloClient} />

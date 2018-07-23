@@ -1,51 +1,78 @@
-/*tslint:disable:no-var-keyword*/
+/*tslint:disable:no-var-keyword interface-name no-namespace */
 
-type SpaceValue = string | number
-type SpaceOrBoolValue = bool | string | number
+interface Window {
+  ReactIntlLocaleData: any
+  __NEXT_DATA__: any
+}
 
-interface IBreakpointsProps {
-  lg?: SpaceOrBoolValue
-  md?: SpaceOrBoolValue
-  sm?: SpaceOrBoolValue
-  xl?: SpaceOrBoolValue
-  xs?: SpaceOrBoolValue
+declare namespace NodeJS {
+  export interface Process {
+    browser: boolean
+  }
+
+  export interface Global {
+    fetch: any
+  }
 }
 
 declare module 'smooth-ui' {
-  export var Alert: React.ComponentType
-  export var Box: React.ComponentType<{
-    alignContent?: string
-    alignItems?: string
-    alignSelf?: string
-    direction?: string
-    flex?: SpaceOrBoolValue
-    justifyContent?: string
-    margin?: SpaceValue
-    padding?: SpaceValue
-    wrap?: string
-  }>
-  export var Button: React.ComponentType
-  export var Checkbox: React.ComponentType
-  export var Col: React.ComponentType<IBreakpointsProps>
-  export var ControlFeedback: React.ComponentType<{ valid?: boolean }>
-  export var FormCheck: React.ComponentType
-  export var FormCheckLabel: React.ComponentType
-  export var FormGroup: React.ComponentType
-  export var Input: React.ComponentType<React.HTMLProps<HTMLLabelElement>>
-  export var Label: React.ComponentType<{ control?: boolean }>
-  export var Modal: React.ComponentType
-  export var ModalBody: React.ComponentType
-  export var ModalContent: React.ComponentType
-  export var ModalDialog: React.ComponentType
-  export var ModalFooter: React.ComponentType
-  export var ModalHeader: React.ComponentType
-  export var Radio: React.ComponentType
-  export var RadioGroup: React.ComponentType
-  export var Row: React.ComponentType<{ gutter?: SpaceValue }>
-  export var Select: React.ComponentType
-  export var Switch: React.ComponentType
-  export var Textarea: React.ComponentType
-  export var Toggler: React.ComponentType
+  type SpaceValue = string | number
+  type SpaceOrBoolValue = bool | string | number
+
+  interface IBreakpointsProps {
+    lg?: SpaceOrBoolValue
+    md?: SpaceOrBoolValue
+    sm?: SpaceOrBoolValue
+    xl?: SpaceOrBoolValue
+    xs?: SpaceOrBoolValue
+  }
+
+  export var Alert: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var Box: React.ComponentType<
+    React.HTMLProps<HTMLDivElement> & {
+      alignContent?: string
+      alignItems?: string
+      alignSelf?: string
+      direction?: string
+      flex?: SpaceOrBoolValue
+      justifyContent?: string
+      margin?: SpaceValue
+      padding?: SpaceValue
+      wrap?: string
+    }
+  >
+  export var Button: React.ComponentType<React.HTMLProps<HTMLButtonElement>>
+  export var Checkbox: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var Col: React.ComponentType<
+    React.HTMLProps<HTMLDivElement> & IBreakpointsProps
+  >
+  export var ControlFeedback: React.ComponentType<
+    React.HTMLProps<HTMLDivElement> & { valid?: boolean }
+  >
+  export var FormCheck: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var FormCheckLabel: React.ComponentType<
+    React.HTMLProps<HTMLLabelElement>
+  >
+  export var FormGroup: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var Input: React.ComponentType<
+    React.HTMLProps<HTMLInputElement> & { control?: boolean }
+  >
+  export var Label: React.ComponentType<React.HTMLProps<HTMLLabelElement>>
+  export var Modal: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var ModalBody: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var ModalContent: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var ModalDialog: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var ModalFooter: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var ModalHeader: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var Radio: React.ComponentType<React.HTMLProps<HTMLInputElement>>
+  export var RadioGroup: React.ComponentType<React.HTMLProps<HTMLDivElement>>
+  export var Row: React.ComponentType<
+    React.HTMLProps<HTMLDivElement> & { gutter?: SpaceValue }
+  >
+  export var Select: React.ComponentType<React.HTMLProps<HTMLSelectElement>>
+  export var Switch: React.ComponentType<React.HTMLProps<HTMLInputElement>>
+  export var Textarea: React.ComponentType<React.HTMLProps<HTMLTextAreaElement>>
+  export var Toggler: React.ComponentType<React.HTMLProps<HTMLSpanElement>>
   export var Transition: React.ComponentType
   export var Typography: React.ComponentType<{
     margin?: boolean

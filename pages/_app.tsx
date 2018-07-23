@@ -1,3 +1,4 @@
+import { ApolloClient, InMemoryCache } from 'apollo-boost'
 import App, { Container } from 'next/app'
 import React from 'react'
 import { ApolloProvider } from 'react-apollo'
@@ -14,7 +15,13 @@ if (typeof window !== 'undefined' && window.ReactIntlLocaleData) {
   })
 }
 
-class MyApp extends App {
+interface IAppProps {
+  locale: string
+  messages: {}
+  apolloClient: ApolloClient<InMemoryCache>
+}
+
+class MyApp extends App<IAppProps> {
   public static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 
@@ -25,7 +32,10 @@ class MyApp extends App {
     // Get the `locale` and `messages` from the request object on the server.
     // In the browser, use the same values that the server serialized.
     const { req } = ctx
-    const { locale, messages } = req || window.__NEXT_DATA__.props.pageProps
+
+    const reqData = req || window.__NEXT_DATA__.props
+
+    const { locale, messages } = reqData
 
     return { pageProps, locale, messages }
   }
@@ -36,7 +46,7 @@ class MyApp extends App {
 
     return (
       <Container>
-        <ApolloProvider client={apolloClient}>
+        <ApolloProvider client={apolloClient as any}>
           <IntlProvider locale={locale} messages={messages} initialNow={now}>
             <Component {...pageProps} />
           </IntlProvider>

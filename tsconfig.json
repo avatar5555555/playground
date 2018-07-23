@@ -15,10 +15,28 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "~/ui": ["ui"],
-      "~/hocs": ["hocs"],
-      "~/lib": ["lib"]
+      "*": [
+        "*"
+      ],
+      "~/ui": [
+        "ui"
+      ],
+      "~/hocs": [
+        "hocs"
+      ],
+      "~/lib": [
+        "lib"
+      ],
+      "~/features/*": [
+        "features/*"
+      ],
+      "~/API": [
+        "API"
+      ]
     },
-    "lib": ["dom", "es2018"]
+    "lib": [
+      "dom",
+      "es2018"
+    ]
   }
 }

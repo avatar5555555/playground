@@ -17,7 +17,7 @@ export const applyGlobalStyles = () => injectGlobal`
 
   ${styledNormalize}
 
-  #__next {
+  html, body, #__next {
     height: 100%;
   }
 `

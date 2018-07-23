@@ -3,7 +3,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 require('./env-vars')
 
-const { ANALYZE } = process.env
+const { ANALYZE, GRAPHQL_API_URL } = process.env
 
 const webpackPart = withTypescript({
   webpack(config, options) {
@@ -22,17 +22,22 @@ const webpackPart = withTypescript({
   }
 })
 
+const publicRuntimeConfig = {
+  GRAPHQL_API_URL
+  // Will be available on both server and client
+}
+
+const serverRuntimeConfig = {
+  // Will only be available on the server side
+}
+
 module.exports = {
   ...webpackPart,
-  exportPathMap: function() {
+  exportPathMap: function () {
     return {
       '/': { page: '/' }
     }
   },
-  publicRuntimeConfig: {
-    // Will be available on both server and client
-  },
-  serverRuntimeConfig: {
-    // Will only be available on the server side
-  }
+  publicRuntimeConfig,
+  serverRuntimeConfig
 }

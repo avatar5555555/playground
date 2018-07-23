@@ -1,14 +1,10 @@
-import Auth from '@aws-amplify/auth'
-import { InMemoryCache } from 'apollo-boost'
-import AWSAppSyncClient from 'aws-appsync'
-// tslint:disable-next-line
-import { AUTH_TYPE } from 'aws-appsync/lib/link/auth-link'
+import { ApolloClient, InMemoryCache } from 'apollo-boost'
+import { setContext } from 'apollo-link-context'
+import { createHttpLink } from 'apollo-link-http'
+import getConfig from 'next/config'
 import fetch from 'node-fetch'
 
-import AppSyncConfig from '../../AppSync'
-import awsExports from '../../aws-exports'
-
-Auth.configure(awsExports)
+const { publicRuntimeConfig } = getConfig()
 
 let apolloClient = null
 
@@ -19,40 +15,41 @@ if (isServer) {
   global.fetch = fetch
 }
 
-function create(initialState) {
-  const client = new AWSAppSyncClient(
-    {
-      auth: {
-        jwtToken: async () => {
-          const session = await Auth.currentSession()
+function create(initialState, { getToken }) {
+  const httpLink = createHttpLink({
+    credentials: 'same-origin',
+    uri: publicRuntimeConfig.GRAPHQL_API_URL
+  })
 
-          return session.getIdToken().getJwtToken()
-        },
-        type: AUTH_TYPE.AMAZON_COGNITO_USER_POOLS
-      },
-      disableOffline: true,
-      region: AppSyncConfig.region,
-      url: AppSyncConfig.graphqlEndpoint
-    },
-    {
-      cache: new InMemoryCache().restore(initialState || {}),
-      ssrMode: true
+  const authLink = setContext((_, { headers }) => {
+    const token = getToken()
+
+    return {
+      headers: {
+        ...headers,
+        authorization: token ? `Bearer ${token}` : ''
+      }
     }
-  )
+  })
 
-  return client
+  return new ApolloClient({
+    cache: new InMemoryCache().restore(initialState || {}),
+    connectToDevTools: process.browser,
+    link: authLink.concat(httpLink),
+    ssrMode: !process.browser // Disables forceFetch on the server (so queries are only run once)
+  })
 }
 
-export default function initApollo(initialState) {
+export default function initApollo(initialState, options) {
   // Make sure to create a new client for every server-side request so that data
   // isn't shared between connections (which would be bad)
-  if (isServer) {
-    return create(initialState)
+  if (!process.browser) {
+    return create(initialState, options)
   }
 
   // Reuse client on the client-side
   if (!apolloClient) {
-    apolloClient = create(initialState)
+    apolloClient = create(initialState, options)
   }
 
   return apolloClient

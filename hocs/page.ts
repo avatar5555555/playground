@@ -1,12 +1,12 @@
 import { compose } from 'ramda'
-import { injectIntl } from 'react-intl'
 
+import { withIntl } from './with-intl'
 import { withLayout } from './with-layout'
 import { withTheme } from './with-theme'
 
 export const pageWithoutLayout = compose(
   withTheme,
-  injectIntl
+  withIntl
 )
 
 export const page = compose(
