@@ -1,0 +1,8 @@
+type Video {
+  id: ID!
+}
+
+type Query {
+  video(id: ID!): Video
+  videos: [Video]!
+}

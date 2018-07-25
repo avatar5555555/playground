@@ -5,7 +5,7 @@ const createLocaleMiddleware = require('./localeMiddleware')
 
 require('../env-vars')
 
-const { NODE_ENV, SERVER_PORT } = process.env
+const { NODE_ENV, SSR_SERVER_PORT } = process.env
 
 const isDev = NODE_ENV !== 'production'
 
@@ -23,13 +23,13 @@ app
       return handle(req, res)
     })
 
-    server.listen(SERVER_PORT, (err) => {
+    server.listen(SSR_SERVER_PORT, (err) => {
       if (err) {
         throw err
       }
 
       // tslint:disable-next-line
-      console.log(`> Ready on http://localhost:${SERVER_PORT}`)
+      console.log(`> Ready on http://localhost:${SSR_SERVER_PORT}`)
     })
   })
   .catch((ex) => {

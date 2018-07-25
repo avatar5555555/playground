@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec ts-node index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "graphql": "^0.13.2",
+    "graphql-authentication": "^0.5.4",
+    "graphql-yoga": "^1.14.12",
+    "lowdb": "^1.0.0",
+    "merge-graphql-schemas": "^1.5.3",
+    "mkdirp": "^0.5.1",
+    "ramda": "^0.25.0",
+    "shortid": "^2.2.12",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/lowdb": "^1.0.4",
+    "@types/node": "^10.5.2",
+    "@types/shortid": "0.0.29",
+    "nodemon": "^1.18.3",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2"
+  }
+}
