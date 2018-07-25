@@ -11,11 +11,7 @@
           "./"
         ],
         "alias": {
-          "~/ui": "./ui",
-          "~/hocs": "./hocs",
-          "~/lib": "./lib",
-          "~/API": "./API",
-          "~/features": "./features"
+          "src": "./src"
         }
       }
     ],

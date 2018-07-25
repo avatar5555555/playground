@@ -4,7 +4,7 @@ import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import { addLocaleData, IntlProvider } from 'react-intl'
 
-import { withApollo } from '~/hocs'
+import { withApollo } from 'src/hocs'
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens
@@ -22,7 +22,7 @@ interface IAppProps {
 }
 
 class MyApp extends App<IAppProps> {
-  public static async getInitialProps({ Component, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
     let pageProps = {}
 
     if (Component.getInitialProps) {
@@ -40,7 +40,7 @@ class MyApp extends App<IAppProps> {
     return { pageProps, locale, messages }
   }
 
-  public render() {
+  render() {
     const { Component, pageProps, locale, messages, apolloClient } = this.props
     const now = Date.now()
 

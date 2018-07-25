@@ -1,3 +1,5 @@
+# See node_modules/graphql-authentication/schema.graphql
+
 scalar DateTime
 
 type Query {
@@ -5,32 +7,13 @@ type Query {
 }
 
 type Mutation {
-  signupByInvite(data: SignupByInviteInput!): AuthPayload!
   signup(data: SignupInput!): AuthPayload!
-  confirmEmail(email: String!, emailConfirmToken: String!): AuthPayload!
-  inviteUser(data: InviteUserInput!): UserIdPayload!
   login(email: String!, password: String!): AuthPayload!
-  changePassword(oldPassword: String!, newPassword: String!): UserIdPayload!
-  updateCurrentUser(data: UserUpdateInput!): User
-  triggerPasswordReset(email: String!): TriggerPasswordResetPayload!
-  passwordReset(
-    email: String!
-    resetToken: String!
-    password: String!
-  ): UserIdPayload!
 }
 
 type AuthPayload {
   token: String!
   user: User!
-}
-
-type UserIdPayload {
-  id: ID!
-}
-
-type TriggerPasswordResetPayload {
-  ok: Boolean!
 }
 
 type User {
@@ -43,22 +26,6 @@ type User {
   lastLogin: DateTime
   joinedAt: DateTime!
   isSuper: Boolean!
-}
-
-input InviteUserInput {
-  email: String!
-}
-
-input UserUpdateInput {
-  email: String
-  name: String
-}
-
-input SignupByInviteInput {
-  email: String!
-  inviteToken: String!
-  password: String!
-  name: String!
 }
 
 input SignupInput {

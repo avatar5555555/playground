@@ -16,19 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "*": [
-        "*"
-      ],
-      "~/ui": [
-        "ui"
-      ],
-      "~/hocs": [
-        "hocs"
-      ],
-      "~/lib": [
-        "lib"
-      ],
-      "~/features/*": [
-        "features/*"
+        "*",
+        "src"
       ],
       "~/API": [
         "API"

@@ -7,14 +7,50 @@
   "rules": {
     "newline-before-return": true,
     "arrow-parens": true,
-    "semicolon": [true, "never"],
-    "quotemark": [true, "single", "jsx-double"],
-    "no-implicit-dependencies": [true, ["~"]],
-    "no-submodule-imports": [true, "~", "next"],
-    "ordered-imports": [true, { "grouped-imports": true }],
+    "max-classes-per-file": false,
+    "prefer-function-over-method": [
+      true,
+      "allow-public",
+      "allow-protected"
+    ],
+    "member-access": [
+      true,
+      "no-public"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
+    "no-implicit-dependencies": [
+      true,
+      [
+        "src",
+        "API"
+      ]
+    ],
+    "no-submodule-imports": [
+      true,
+      "src",
+      "next"
+    ],
+    "ordered-imports": [
+      true,
+      {
+        "grouped-imports": true
+      }
+    ],
     "prettier": [
       true,
-      { "singleQuote": true, "arrowParens": "always", "semi": false }
+      {
+        "singleQuote": true,
+        "arrowParens": "always",
+        "semi": false
+      }
     ]
   }
 }

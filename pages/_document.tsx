@@ -2,7 +2,7 @@ import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
 class MyDocument extends Document {
-  public static async getInitialProps(context) {
+  static async getInitialProps(context) {
     // intl
     const {
       req: { locale, localeDataScript },
@@ -22,7 +22,7 @@ class MyDocument extends Document {
     }
   }
 
-  public render() {
+  render() {
     const { locale, localeDataScript, styleTags } = this.props
 
     // Polyfill Intl API for older browsers

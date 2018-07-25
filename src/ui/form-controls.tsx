@@ -35,6 +35,7 @@ interface IFormControlFeedback {
 }
 
 const Feedback = styled(ControlFeedback)`
+  margin-top: 0;
   height: 19px;
 `
 
@@ -97,3 +98,12 @@ export const FormControlFeedback = ({ name }: IFormControlFeedback) => (
     }}
   </Field>
 )
+
+export const FormGroup = styled.div`
+  margin-bottom: 6px;
+`
+
+export const Label = styled.label`
+  display: block;
+  margin-bottom: 2px;
+`

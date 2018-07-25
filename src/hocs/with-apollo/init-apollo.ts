@@ -1,6 +1,7 @@
-import { ApolloClient, InMemoryCache } from 'apollo-boost'
+import { ApolloClient, ApolloLink, InMemoryCache } from 'apollo-boost'
 import { setContext } from 'apollo-link-context'
 import { createHttpLink } from 'apollo-link-http'
+import apolloLogger from 'apollo-link-logger'
 import getConfig from 'next/config'
 import fetch from 'node-fetch'
 
@@ -32,10 +33,12 @@ function create(initialState, { getToken }) {
     }
   })
 
+  const link = ApolloLink.from([apolloLogger, authLink, httpLink])
+
   return new ApolloClient({
     cache: new InMemoryCache().restore(initialState || {}),
     connectToDevTools: process.browser,
-    link: authLink.concat(httpLink),
+    link,
     ssrMode: !process.browser // Disables forceFetch on the server (so queries are only run once)
   })
 }

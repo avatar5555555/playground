@@ -3,8 +3,8 @@ import Router from 'next/router'
 import NProgress from 'nprogress'
 import React, { Component, Fragment } from 'react'
 
-import { hoistStatics } from '~/lib'
-import { Layout } from '~/ui'
+import { hoistStatics } from 'src/lib'
+import { Layout } from 'src/ui'
 
 Router.onRouteChangeStart = () => NProgress.start()
 Router.onRouteChangeComplete = () => NProgress.done()
@@ -12,7 +12,7 @@ Router.onRouteChangeError = () => NProgress.done()
 
 export const withLayoutHoc = (W) => {
   class WithLayout extends Component {
-    public render() {
+    render() {
       return (
         <Fragment>
           <Head>

@@ -1,22 +1,25 @@
+import cookie from 'cookie'
 import Head from 'next/head'
 import React from 'react'
 import { getDataFromTree } from 'react-apollo'
 
 import initApollo from './init-apollo'
 
-const getToken = () => 'token'
+const parseCookies = (req = null, options = {}) => {
+  return cookie.parse(req ? req.headers.cookie || '' : document.cookie, options)
+}
 
 export const withApollo = (App) => {
   return class Apollo extends React.Component<{ apolloState: any }> {
-    public static displayName = 'withApollo(App)'
+    static displayName = 'withApollo(App)'
 
-    public static async getInitialProps(context) {
+    static async getInitialProps(context) {
       const { Component, router, ctx } = context
-      const { res } = ctx
+      const { res, req } = ctx
 
       // Run all GraphQL queries in the component tree
       // and extract the resulting data
-      const apollo = initApollo({}, { getToken })
+      const apollo = initApollo({}, { getToken: () => parseCookies(req).token })
 
       ctx.apolloClient = apollo
 
@@ -67,9 +70,11 @@ export const withApollo = (App) => {
       }
     }
 
-    public apolloClient = initApollo(this.props.apolloState, { getToken })
+    apolloClient = initApollo(this.props.apolloState, {
+      getToken: () => parseCookies().token
+    })
 
-    public render() {
+    render() {
       return <App {...this.props} apolloClient={this.apolloClient} />
     }
   }

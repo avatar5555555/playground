@@ -1,13 +1,14 @@
 import { ApolloClient, gql, InMemoryCache } from 'apollo-boost'
 import { ApolloQueryResult } from 'apollo-client'
 
-import { getUser } from '../API'
+import { currentUser } from 'API'
 
-const query = gql`
-  query getUser {
-    user {
+export const query = gql`
+  query currentUser {
+    currentUser {
       id
       name
+      email
     }
   }
 `
@@ -15,8 +16,8 @@ const query = gql`
 export const getCurrentUser = (apolloClient: ApolloClient<InMemoryCache>) => {
   return apolloClient
     .query({ query })
-    .then(({ data }: ApolloQueryResult<getUser>) => {
-      return data.user
+    .then(({ data }: ApolloQueryResult<currentUser>) => {
+      return data.currentUser
     })
     .catch(() => {
       // Fail gracefully

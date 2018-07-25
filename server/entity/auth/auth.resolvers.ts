@@ -1,11 +1,13 @@
 import { authMutations, authQueries } from 'graphql-authentication'
 
+// TODO: use custom errors
 const resolvers = {
   Mutation: {
-    ...authMutations
+    login: authMutations.login,
+    signup: authMutations.signup
   },
   Query: {
-    ...authQueries
+    currentUser: authQueries.currentUser
   }
 }
 

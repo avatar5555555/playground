@@ -41,7 +41,20 @@ declare module 'smooth-ui' {
       wrap?: string
     }
   >
-  export var Button: React.ComponentType<React.HTMLProps<HTMLButtonElement>>
+  export var Button: React.ComponentType<
+    React.HTMLProps<HTMLButtonElement> & {
+      variant?:
+        | 'primary'
+        | 'secondary'
+        | 'success'
+        | 'danger'
+        | 'warning'
+        | 'info'
+        | 'light'
+        | 'dark'
+        | null
+    }
+  >
   export var Checkbox: React.ComponentType<React.HTMLProps<HTMLDivElement>>
   export var Col: React.ComponentType<
     React.HTMLProps<HTMLDivElement> & IBreakpointsProps
