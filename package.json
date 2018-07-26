@@ -6,6 +6,7 @@
   "scripts": {
     "commitmsg": "commitlint -E GIT_PARAMS",
     "precommit": "lint-staged",
+    "postinstall": "cp .env.example .env",
     "dev": "nodemon ssr/index.js",
     "build": "next build && npm run lang",
     "lang": "node ./scripts/default-lang",
