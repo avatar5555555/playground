@@ -54,7 +54,7 @@ const createLocaleMiddleware = (dev) => (req, res, next) => {
 
   req.locale = locale
   req.localeDataScript = getLocaleDataScript(locale)
-  req.messages = dev ? {} : getMessages(locale)
+  req.messages = getMessages(locale)
 
   next()
 }

@@ -1,5 +1,6 @@
 {
   "watch": [
-    "ssr/**/*.js"
+    "ssr/**/*.js",
+    "lang/**/*.json"
   ]
 }

@@ -1,19 +1,48 @@
 {
-	"dashboard.description": "An example app integrating React Intl with Next.js",
-	"dashboard.greeting": "Hello, World!",
-	"dashboard.title": "My playground",
-	"dashboard.videos": "Videos",
-	"layout.logo": "playground",
-	"layout.logout": "logout",
-	"login.emailLabel": "email",
-	"login.passwordLabel": "password",
-	"login.signup": "or sign up",
-	"login.submit": "log in now",
-	"login.title": "log in",
-	"signup.emailLabel": "email",
-	"signup.login": "or log in",
-	"signup.nameLabel": "name",
-	"signup.passwordLabel": "password",
-	"signup.submit": "sign up now!",
-	"signup.title": "sign up!"
+  "login": {
+    "title": "log in",
+    "submit": "log in now",
+    "signup": "or sign up",
+    "emailLabel": "email",
+    "password": {
+      "min": "password must be at least 8 characters",
+      "max": "password must be at most 20 characters",
+      "required": "password is required"
+    },
+    "email": {
+      "format": "should be valid email",
+      "required": "email is required"
+    },
+    "passwordLabel": "password"
+  },
+  "layout": {
+    "logo": "playground",
+    "logout": "logout"
+  },
+  "signup": {
+    "title": "sign up!",
+    "login": "or log in",
+    "submit": "sign up now!",
+    "nameLabel": "name",
+    "emailLabel": "email",
+    "email": {
+      "format": "should be valid email",
+      "required": "email is required"
+    },
+    "password": {
+      "max": "password must be at most 20 characters",
+      "min": "password must be at least 8 characters",
+      "required": "password is required"
+    },
+    "name": {
+      "required": "name is required"
+    },
+    "passwordLabel": "password"
+  },
+  "dashboard": {
+    "title": "My playground",
+    "videos": "Videos",
+    "greeting": "Hello, World!",
+    "description": "An example app integrating React Intl with Next.js"
+  }
 }

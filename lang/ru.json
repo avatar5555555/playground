@@ -1,19 +1,48 @@
 {
-	"dashboard.description": "Пример приложения",
-	"dashboard.greeting": "Привет, Мир!",
-	"dashboard.title": "Моя песочница",
-	"dashboard.videos": "Видео",
-	"layout.logo": "playground",
-	"layout.logout": "выйти",
-	"login.emailLabel": "",
-	"login.passwordLabel": "пароль",
-	"login.signup": "регистрация",
-	"login.submit": "войти",
-	"login.title": "войти",
-	"signup.emailLabel": "email",
-	"signup.login": "войти",
-	"signup.nameLabel": "имя",
-	"signup.passwordLabel": "пароль",
-	"signup.submit": "зарегистрироваться",
-	"signup.title": "регистрация"
+  "login": {
+    "title": "войти",
+    "submit": "войти",
+    "signup": "регистрация",
+    "emailLabel": "email",
+    "password": {
+      "min": "минимум 8 символов",
+      "max": "максимум 20 символов",
+      "required": "обязательное поле"
+    },
+    "email": {
+      "format": "неверный формат",
+      "required": "обязательное поле"
+    },
+    "passwordLabel": "пароль"
+  },
+  "layout": {
+    "logo": "playground",
+    "logout": "выйти"
+  },
+  "signup": {
+    "title": "регистрация",
+    "login": "войти",
+    "submit": "зарегистрироваться",
+    "nameLabel": "имя",
+    "emailLabel": "email",
+    "email": {
+      "format": "неверный формат",
+      "required": "обязательное поле"
+    },
+    "password": {
+      "max": "максимум 20 символов",
+      "min": "минимум 8 символов",
+      "required": "обязательное поле"
+    },
+    "name": {
+      "required": "обязательное поле"
+    },
+    "passwordLabel": "пароль"
+  },
+  "dashboard": {
+    "title": "Моя песочница",
+    "videos": "Видео",
+    "greeting": "Привет, Мир!",
+    "description": "Пример приложения"
+  }
 }

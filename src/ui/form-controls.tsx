@@ -81,6 +81,10 @@ const extractErrorMessage = ({
   }
 }
 
+// Workaround for messages extractor
+// See https://github.com/yahoo/babel-plugin-react-intl/issues/119#issuecomment-326202499
+const T = (p) => <FormattedMessage {...p} />
+
 export const FormControlFeedback = ({ name }: IFormControlFeedback) => (
   <Field
     name={name}
@@ -96,11 +100,7 @@ export const FormControlFeedback = ({ name }: IFormControlFeedback) => (
       const valid = type === FieldErrorType.none
 
       return (
-        <Feedback valid={valid}>
-          {valid ? null : (
-            <FormattedMessage id={message} defaultMessage={message} />
-          )}
-        </Feedback>
+        <Feedback valid={valid}>{valid ? null : <T id={message} />}</Feedback>
       )
     }}
   </Field>
