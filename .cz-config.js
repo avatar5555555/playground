@@ -5,6 +5,7 @@ module.exports = {
         { value: 'feat', name: 'feat:     A new feature' },
         { value: 'fix', name: 'fix:      A bug fix' },
         { value: 'docs', name: 'docs:     Documentation only changes' },
+        { value: 'i18n', name: 'i18n:     Translation only changes' },
         {
             value: 'style',
             name:
