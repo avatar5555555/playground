@@ -134,7 +134,7 @@ export class SignUpFormRaw extends Component<
               <Link href="/login" prefetch>
                 <Button type="button" variant="light">
                   <FormattedMessage
-                    id="login.signup"
+                    id="signup.login"
                     defaultMessage="or log in"
                   />
                 </Button>

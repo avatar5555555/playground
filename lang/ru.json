@@ -1,4 +1,19 @@
 {
-	"description": "Это пример интеграции React Intl с Next.js ",
-	"greeting": "Привет, Мир!"
+	"dashboard.description": "Пример приложения",
+	"dashboard.greeting": "Привет, Мир!",
+	"dashboard.title": "Моя песочница",
+	"dashboard.videos": "Видео",
+	"layout.logo": "playground",
+	"layout.logout": "выйти",
+	"login.emailLabel": "",
+	"login.passwordLabel": "пароль",
+	"login.signup": "регистрация",
+	"login.submit": "войти",
+	"login.title": "войти",
+	"signup.emailLabel": "email",
+	"signup.login": "войти",
+	"signup.nameLabel": "имя",
+	"signup.passwordLabel": "пароль",
+	"signup.submit": "зарегистрироваться",
+	"signup.title": "регистрация"
 }

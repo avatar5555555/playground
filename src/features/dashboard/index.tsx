@@ -23,6 +23,7 @@ const { description, title } = defineMessages({
 })
 
 const Root = styled(Box)`
+  flex-direction: column;
   margin-top: 40px;
   margin-bottom: 40px;
   margin-left: auto;
@@ -66,6 +67,10 @@ export class Dashboard extends Component<InjectedIntlProps> {
 
           <Typography variant="h2">
             <FormattedNumber value={9999} />
+          </Typography>
+
+          <Typography variant="h3">
+            <FormattedMessage id="dashboard.videos" defaultMessage="Videos" />
           </Typography>
         </Root>
       </Fragment>

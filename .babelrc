@@ -25,12 +25,6 @@
     ],
     [
       "ramda"
-    ],
-    [
-      "react-intl",
-      {
-        "messagesDir": "lang/.messages/"
-      }
     ]
   ]
 }

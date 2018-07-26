@@ -1,5 +1,6 @@
 import React from 'react'
 import { Field, FieldRenderProps } from 'react-final-form'
+import { FormattedMessage } from 'react-intl'
 import {
   Checkbox,
   ControlFeedback,
@@ -94,7 +95,13 @@ export const FormControlFeedback = ({ name }: IFormControlFeedback) => (
       const { message, type } = extractErrorMessage(meta)
       const valid = type === FieldErrorType.none
 
-      return <Feedback valid={valid}>{valid ? null : message}</Feedback>
+      return (
+        <Feedback valid={valid}>
+          {valid ? null : (
+            <FormattedMessage id={message} defaultMessage={message} />
+          )}
+        </Feedback>
+      )
     }}
   </Field>
 )

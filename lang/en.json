@@ -1,4 +1,19 @@
 {
-	"description": "An example app integrating React Intl with Next.js",
-	"greeting": "Hello, World!"
+	"dashboard.description": "An example app integrating React Intl with Next.js",
+	"dashboard.greeting": "Hello, World!",
+	"dashboard.title": "My playground",
+	"dashboard.videos": "Videos",
+	"layout.logo": "playground",
+	"layout.logout": "logout",
+	"login.emailLabel": "email",
+	"login.passwordLabel": "password",
+	"login.signup": "or sign up",
+	"login.submit": "log in now",
+	"login.title": "log in",
+	"signup.emailLabel": "email",
+	"signup.login": "or log in",
+	"signup.nameLabel": "name",
+	"signup.passwordLabel": "password",
+	"signup.submit": "sign up now!",
+	"signup.title": "sign up!"
 }
