@@ -40,7 +40,7 @@ client
 ## NPM Scripts
 - `npm run dev` - start client dev server
 - `npm run build` - build production build
-- `npm run lang` - extract default translation file
+- `npm run lang:extract` - extract default translation file
 - `npm run start` - start production server
 - `npm run export` - extract static version of the project
 - `npm run analyze` - run webpack-bundle-analyzer
