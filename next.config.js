@@ -1,7 +1,7 @@
 const withTypescript = require('@zeit/next-typescript')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
-require('./env-vars')
+require('dotenv').config()
 
 const { ANALYZE, GRAPHQL_API_URL } = process.env
 
