@@ -2,7 +2,6 @@
   <h1>Playground</h1>
 </div>
 
-
 ## Stack
 
 - [React](https://facebook.github.io/react) rendering
@@ -17,6 +16,7 @@
 - [Smooth-UI](https://github.com/smooth-code/smooth-ui) React Components library based on Styled Components
 
 Development:
+
 - [Webpack-bundle-analyzer](https://github.com/th0r/webpack-bundle-analyzer) to visualize the bundled code contents
 
 ## Development
@@ -24,10 +24,12 @@ Development:
 - `git clone https://github.com/gilaz/playground && cd playground/server`
 
 server
+
 - `npm install` - install server dependencies
 - `npm start` - start the server
 
 client
+
 - `cd ..` - navigate back to root
 - `npm install` - install client dependencies
 - `npm run dev` - start client size
@@ -38,9 +40,10 @@ client
 
 
 ## NPM Scripts
+
 - `npm run dev` - start client dev server
 - `npm run build` - build production build
-- `npm run lang:extract` - extract default translation file
+- `npm run i18n:extract` - extract default translation file
 - `npm run start` - start production server
 - `npm run export` - extract static version of the project
 - `npm run analyze` - run webpack-bundle-analyzer
@@ -48,6 +51,7 @@ client
 - `npm run codegen` - generate typescript typings based on used queries and schema
 
 ## Features
+
 - [x] authentication and authorization
 - [ ] video recording
-- [ ] realtime chat
+- [ ] chat
