@@ -8,7 +8,7 @@
     "precommit": "lint-staged",
     "postinstall": "if [ ! -f .env ]; then cp .env.example .env; fi",
     "dev": "nodemon ssr/index.js",
-    "build": "next build && npm run lang",
+    "build": "next build && npm run lang:extract",
     "lang:extract": "extract-messages -l=en,ru -o ./lang -d en --flat false 'src/**/*.{ts,tsx}'",
     "start": "NODE_ENV=production node ssr/index.js",
     "export": "next export",
