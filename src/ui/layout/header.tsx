@@ -14,6 +14,7 @@ const Root = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${th('light')};
+  height: 56px;
 `
 
 const Logo = styled.a`
