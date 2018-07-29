@@ -26,6 +26,16 @@
     "lib": [
       "dom",
       "es2018"
+    ],
+    "plugins": [
+      {
+        "name": "ts-graphql-plugin",
+        "schema": "schema.json",
+        "tag": "gql"
+      },
+      {
+        "name": "typescript-styled-plugin"
+      }
     ]
   }
 }

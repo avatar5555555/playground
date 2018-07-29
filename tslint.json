@@ -2,9 +2,11 @@
   "extends": [
     "tslint:latest",
     "tslint-plugin-prettier",
-    "tslint-config-prettier"
+    "tslint-config-prettier",
+    "tslint-plugin-graphql"
   ],
   "rules": {
+    "object-literal-sort-keys": false,
     "newline-before-return": true,
     "arrow-parens": true,
     "max-classes-per-file": false,
@@ -50,6 +52,14 @@
         "singleQuote": true,
         "arrowParens": "always",
         "semi": false
+      }
+    ],
+    "graphql": [
+      true,
+      {
+        "env": "apollo",
+        "schemaJsonFilepath": "./schema.json",
+        "tagName": "gql"
       }
     ]
   }
