@@ -13,6 +13,7 @@ const Root = styled(Center)`
 
 const FormBox = styled(Card)`
   max-width: 400px;
+  padding: 40px;
 `
 
 export class PageTemplate extends Component<
