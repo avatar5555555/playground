@@ -13,7 +13,7 @@ Intl.NumberFormat = IntlPolyfill.NumberFormat
 Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat
 
 // Get the supported languages by looking for translations in the `lang/` dir.
-const languages = glob.sync('./lang/*.json').map((f) => basename(f, '.json'))
+const languages = glob.sync('./i18n/*.json').map((f) => basename(f, '.json'))
 
 // We need to expose React Intl's locale data on the request for the user's
 // locale. This function will also cache the scripts by lang in memory.
@@ -38,7 +38,7 @@ const flatTranslationCache = new Map()
 // locale. These will only be used in production, in dev the `defaultMessage` in
 // each message description in the source code will be used.
 const getMessages = (locale) => {
-  const translation = require(`../lang/${locale}.json`)
+  const translation = require(`../i18n/${locale}.json`)
 
   if (!flatTranslationCache.has(locale)) {
     const flatTranslation = flat(translation)
