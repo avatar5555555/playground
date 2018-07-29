@@ -1,4 +1,4 @@
 import { Login } from 'src/features/auth/login'
-import { page } from 'src/hocs'
+import { guestPage } from 'src/hocs'
 
-export default page(Login)
+export default guestPage(Login)

@@ -9,8 +9,6 @@ import {
 import { Box, Typography } from 'smooth-ui'
 import styled from 'styled-components'
 
-import { getCurrentUser, redirect } from 'src/lib'
-
 const { description, title } = defineMessages({
   description: {
     defaultMessage: 'An example app integrating React Intl with Next.js',
@@ -31,17 +29,6 @@ const Root = styled(Box)`
 `
 
 export class Dashboard extends Component<InjectedIntlProps> {
-  static async getInitialProps(context) {
-    const currentUser = await getCurrentUser(context.apolloClient)
-
-    if (!currentUser) {
-      // If not signed in, send them somewhere more useful
-      redirect(context, '/login')
-    }
-
-    return { currentUser }
-  }
-
   render() {
     const { intl } = this.props
 
@@ -54,7 +41,7 @@ export class Dashboard extends Component<InjectedIntlProps> {
             content={intl.formatMessage(description)}
           />
 
-          <title>{intl.formatMessage(title)}</title>
+          <title key="title">{intl.formatMessage(title)}</title>
         </Head>
 
         <Root>

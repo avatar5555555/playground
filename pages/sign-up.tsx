@@ -1,4 +1,4 @@
 import { SignUp } from 'src/features/auth/sign-up'
-import { page } from 'src/hocs'
+import { guestPage } from 'src/hocs'
 
-export default page(SignUp)
+export default guestPage(SignUp)

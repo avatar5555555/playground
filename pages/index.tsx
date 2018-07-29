@@ -1,4 +1,4 @@
 import { Dashboard } from 'src/features/dashboard'
-import { page } from 'src/hocs'
+import { privatePage } from 'src/hocs'
 
-export default page(Dashboard)
+export default privatePage(Dashboard)
