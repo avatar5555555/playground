@@ -15,6 +15,7 @@ const Root = styled.div`
   align-items: center;
   background-color: ${th('light')};
   height: 56px;
+  flex-shrink: 0;
 `
 
 const Logo = styled.a`

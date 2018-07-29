@@ -14,3 +14,4 @@ export {
 } from './form-controls'
 export { FormInner } from './form-inner'
 export { Layout } from './layout'
+export { Spinner } from './spinner'

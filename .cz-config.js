@@ -34,7 +34,8 @@ module.exports = {
         { name: 'app' },
         { name: 'server' },
         { name: 'ui' },
-        { name: 'auth' }
+        { name: 'auth' },
+        { name: 'video' }
     ],
 
     allowCustomScopes: false,

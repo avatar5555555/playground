@@ -3,6 +3,9 @@
 interface Window {
   ReactIntlLocaleData: any
   __NEXT_DATA__: any
+  MediaStream: any
+  webkitMediaStream: any
+  MediaRecorder: any
 }
 
 declare namespace NodeJS {
