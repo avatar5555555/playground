@@ -1,5 +1,11 @@
 /*tslint:disable:no-var-keyword interface-name no-namespace */
 
+// Helper type operators
+type KeyofBase = keyof any
+type Diff<T extends KeyofBase, U extends KeyofBase> = ({ [P in T]: P } &
+  { [P in U]: never })[T]
+type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>
+
 interface Window {
   ReactIntlLocaleData: any
   __NEXT_DATA__: any

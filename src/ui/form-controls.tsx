@@ -9,7 +9,8 @@ import {
   Select,
   Textarea
 } from 'smooth-ui'
-import styled from 'styled-components'
+
+import styled from 'src/styled-components'
 
 const adapt = (W) => ({
   input,

@@ -4,7 +4,8 @@ import React, { Component } from 'react'
 import { Query } from 'react-apollo'
 import { FormattedMessage } from 'react-intl'
 import { Button, th } from 'smooth-ui'
-import styled from 'styled-components'
+
+import styled from 'src/styled-components'
 
 import { query } from 'src/lib/get-current-user'
 

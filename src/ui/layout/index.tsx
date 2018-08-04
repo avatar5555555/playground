@@ -1,7 +1,8 @@
 import cookie from 'cookie'
 import React, { Component } from 'react'
 import { ApolloConsumer } from 'react-apollo'
-import styled from 'styled-components'
+
+import styled from 'src/styled-components'
 
 import { redirect } from 'src/lib'
 

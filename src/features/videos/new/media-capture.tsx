@@ -81,8 +81,10 @@ export class MediaCapture extends Component<IProps, IState> {
     this.mediaRecorder = null
     this.mediaChunk = []
 
-    this.stream.stop()
-    this.stream = null
+    if (this.stream) {
+      this.stream.stop()
+      this.stream = null
+    }
   }
 
   setup = () => {

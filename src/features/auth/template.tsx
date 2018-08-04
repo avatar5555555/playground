@@ -2,7 +2,8 @@ import Head from 'next/head'
 import React, { Component } from 'react'
 import { FormattedMessage, InjectedIntlProps } from 'react-intl'
 import { th, Typography } from 'smooth-ui'
-import styled from 'styled-components'
+
+import styled from 'src/styled-components'
 
 import { Card, Center } from 'src/ui'
 

@@ -1,5 +1,6 @@
 import { th } from 'smooth-ui'
-import styled from 'styled-components'
+
+import styled from 'src/styled-components'
 
 export const Spinner = styled.div`
   animation: pulsate 1s ease-out;

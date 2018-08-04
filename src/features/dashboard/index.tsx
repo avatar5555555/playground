@@ -7,7 +7,8 @@ import {
   InjectedIntlProps
 } from 'react-intl'
 import { Box, Typography } from 'smooth-ui'
-import styled from 'styled-components'
+
+import styled from 'src/styled-components'
 
 const { description, title } = defineMessages({
   description: {

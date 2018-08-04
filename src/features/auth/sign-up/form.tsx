@@ -11,7 +11,8 @@ import {
 import { Field, Form } from 'react-final-form'
 import { FormattedMessage } from 'react-intl'
 import { Button } from 'smooth-ui'
-import styled from 'styled-components'
+
+import styled from 'src/styled-components'
 
 import * as api from 'API'
 import { form, redirect } from 'src/lib'

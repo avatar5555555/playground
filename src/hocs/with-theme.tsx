@@ -1,5 +1,6 @@
 import React from 'react'
-import { ThemeProvider } from 'styled-components'
+
+import { ThemeProvider } from 'src/styled-components'
 
 import { hoistStatics } from 'src/lib'
 import { theme } from 'src/ui'

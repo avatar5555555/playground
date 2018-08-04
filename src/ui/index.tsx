@@ -1,4 +1,4 @@
-export { theme } from './theme'
+export { theme } from 'src/theme'
 
 export { Card } from './card'
 export { Center } from './center'

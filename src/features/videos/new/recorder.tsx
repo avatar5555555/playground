@@ -1,5 +1,10 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
+import { Button } from 'smooth-ui'
+
+import styled from 'src/styled-components'
+
 import { callAll } from 'src/lib'
+import { Icon } from 'src/ui'
 
 import { MediaCapture } from './media-capture'
 
@@ -12,7 +17,12 @@ export interface IState {
   counter?: number
 }
 
-// TODO: use state machine
+const Root = styled.div``
+
+const VideoRoot = styled.div``
+
+const Video = styled.video``
+
 export class Recorder extends Component {
   state = {
     granted: false,
@@ -87,15 +97,17 @@ export class Recorder extends Component {
     const isPlayer = !recording && recorded && counter === null
 
     return (
-      <Fragment>
-        <video
-          src={src}
-          autoPlay={!isPlayer}
-          muted={!isPlayer}
-          controls={isPlayer}
-        />
+      <Root>
+        <VideoRoot>
+          <Video
+            src={src}
+            autoPlay={!isPlayer}
+            muted={!isPlayer}
+            controls={isPlayer}
+          />
 
-        {counter}
+          {counter}
+        </VideoRoot>
 
         <MediaCapture
           constraints={{ audio: true, video: true }}
@@ -110,24 +122,29 @@ export class Recorder extends Component {
             const showSetup = !granted
             const showRecord = !recording && granted && counter === null
             const showStop = recording
-            const recordText = recorded ? 'rerecord' : 'record'
 
             return (
               <div>
-                {showSetup && <button onClick={setup}>Setup</button>}
+                {showSetup && (
+                  <Button onClick={setup}>
+                    <Icon size={20} name="record" />
+                  </Button>
+                )}
                 {showRecord && (
-                  <button onClick={() => this.handleRecord(start)}>
-                    {recordText}
-                  </button>
+                  <Button onClick={() => this.handleRecord(start)}>
+                    <Icon size={20} name="record" />
+                  </Button>
                 )}
                 {showStop && (
-                  <button onClick={callAll(stop, teardown)}>Stop</button>
+                  <Button onClick={callAll(stop, teardown)}>
+                    <Icon size={20} name="stop" />
+                  </Button>
                 )}
               </div>
             )
           }}
         </MediaCapture>
-      </Fragment>
+      </Root>
     )
   }
 }
