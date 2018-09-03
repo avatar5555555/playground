@@ -45,7 +45,7 @@ const Buttons = styled.div`
   margin-top: 20px;
 `
 
-export class LoginFormRaw extends Component<
+export class LoginFormView extends Component<
   WithApolloClient<{ login: MutationFunc }>
 > {
   handleSubmit = async (values) => {
@@ -141,4 +141,4 @@ const enhance = compose(
   graphql(LoginM, { name: 'login' })
 )
 
-export const LoginForm = enhance(LoginFormRaw)
+export const LoginForm = enhance(LoginFormView)

@@ -13,7 +13,7 @@ const { title } = defineMessages({
   }
 })
 
-export class SignUpRaw extends Component<InjectedIntlProps> {
+export class SignUpView extends Component<InjectedIntlProps> {
   render() {
     return (
       <PageTemplate title={title} {...this.props}>
@@ -23,4 +23,4 @@ export class SignUpRaw extends Component<InjectedIntlProps> {
   }
 }
 
-export const SignUp = hoistStatic(SignUpRaw, PageTemplate)
+export const SignUp = hoistStatic(SignUpView, PageTemplate)

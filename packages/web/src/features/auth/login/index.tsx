@@ -13,7 +13,7 @@ const { title } = defineMessages({
   }
 })
 
-export class LoginRaw extends Component<InjectedIntlProps> {
+export class LoginView extends Component<InjectedIntlProps> {
   render() {
     return (
       <PageTemplate title={title} {...this.props}>
@@ -23,4 +23,4 @@ export class LoginRaw extends Component<InjectedIntlProps> {
   }
 }
 
-export const Login = hoistStatic(LoginRaw, PageTemplate)
+export const Login = hoistStatic(LoginView, PageTemplate)

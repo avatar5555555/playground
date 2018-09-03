@@ -24,7 +24,7 @@ export interface IIconProps {
   theme: Theme
 }
 
-class IconRaw extends Component<IIconProps> {
+class IconView extends Component<IIconProps> {
   render() {
     const { name, size, width, height, fill, theme } = this.props
 
@@ -40,6 +40,6 @@ class IconRaw extends Component<IIconProps> {
   }
 }
 
-const IconWithTheme = withTheme(IconRaw)
+const IconWithTheme = withTheme(IconView)
 
 export const Icon = styled<WithOptionalTheme<IIconProps>>(IconWithTheme)``
