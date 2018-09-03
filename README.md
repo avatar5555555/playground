@@ -20,6 +20,7 @@
 
 Development:
 
+- [asdf](https://github.com/asdf-vm/asdf) to manage node.js version
 - [Webpack-bundle-analyzer](https://github.com/th0r/webpack-bundle-analyzer) to visualize the bundled code contents
 
 ## Development
