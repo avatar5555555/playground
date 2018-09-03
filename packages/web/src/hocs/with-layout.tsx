@@ -4,7 +4,7 @@ import NProgress from 'nprogress'
 import React, { Component, Fragment } from 'react'
 
 import { hoistStatics } from 'src/lib'
-import { Layout } from 'src/ui'
+import { BaseLayout } from 'src/ui'
 
 Router.onRouteChangeStart = () => NProgress.start()
 Router.onRouteChangeComplete = () => NProgress.done()
@@ -22,9 +22,9 @@ export const withLayoutHoc = (W) => {
               href="/static/nprogress.css"
             />
           </Head>
-          <Layout>
+          <BaseLayout>
             <W {...this.props} />
-          </Layout>
+          </BaseLayout>
         </Fragment>
       )
     }

@@ -1,8 +1,8 @@
 import { defaultTo } from 'ramda'
 import React, { Component } from 'react'
-
 import styled, { WithOptionalTheme, withTheme } from 'src/styled-components'
-import { Theme } from 'src/theme'
+
+import { Theme } from 'src/ui'
 
 import { Record } from './record'
 import { Stop } from './stop'

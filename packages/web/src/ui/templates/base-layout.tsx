@@ -6,7 +6,7 @@ import styled from 'src/styled-components'
 
 import { redirect } from 'src/lib'
 
-import { Header } from './header'
+import { Header } from 'src/ui'
 
 const Root = styled.div`
   height: 100%;
@@ -18,11 +18,11 @@ const Main = styled.div`
   flex: 1;
 `
 
-interface ILayoutProps {
+interface IBaseLayoutProps {
   children: React.ReactNode
 }
 
-export class Layout extends Component<ILayoutProps> {
+export class BaseLayout extends Component<IBaseLayoutProps> {
   logout = (apolloClient) => () => {
     document.cookie = cookie.serialize('token', '', {
       maxAge: -1 // Expire the cookie immediately
