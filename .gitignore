@@ -2,17 +2,3 @@
 .vscode
 /node_modules
 npm-debug.log*
-.env
-.next/
-lang/.messages/
-AppSync.json
-AppSync.js
-
-#awsmobilejs
-appsync-info.json
-aws-info.json
-project-info.json
-aws-exports.*
-awsmobilejs/.awsmobile/backend-build
-awsmobilejs/\#current-backend-info
-~awsmobilejs-*/

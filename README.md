@@ -2,6 +2,9 @@
   <h1>Playground</h1>
 </div>
 
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 ## Stack
 
 - [React](https://facebook.github.io/react) rendering
@@ -21,25 +24,22 @@ Development:
 
 ## Development
 
-- `git clone https://github.com/gilaz/playground && cd playground/server`
+- `git clone https://github.com/gilaz/playground`
 
-server
+bootstrap
 
-- `npm install` - install server dependencies
-- `npm start` - start the server
-
-client
-
-- `cd ..` - navigate back to root
-- `npm install` - install client dependencies
-- `npm run dev` - start client size
-
-- navigate to <http://localhost:3000>
+- `npm install` - install lerna dependencies
+- `npm run bootstrap` - install packages dependencies, link packages
 
 `npm` will create `.env` for you (through the `postinstall` hook).
 
+start
 
-## NPM Scripts
+- `npm run dev` - start server and web
+
+- navigate to <http://localhost:3000>
+
+## WEB NPM Scripts
 
 - `npm run dev` - start client dev server
 - `npm run build` - build production build
@@ -50,8 +50,14 @@ client
 - `npm run schema:download` - download server graphql schema
 - `npm run codegen` - generate typescript typings based on used queries and schema
 
-## Features
+## TODO
 
 - [x] authentication and authorization
 - [ ] video recording
 - [ ] chat
+- [ ] Greenkeeper
+- [ ] ts -> js
+- [ ] Docker
+- [ ] CI
+- [ ] AWS branch
+- [ ] ...

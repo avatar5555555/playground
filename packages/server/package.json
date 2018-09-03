@@ -1,10 +1,10 @@
 {
-  "name": "server",
+  "name": "@playground/server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec ts-node index.ts",
+    "dev": "nodemon --exec ts-node index.ts",
     "postinstall": "if [ ! -f .env ]; then cp .env.example .env; fi"
   },
   "keywords": [],
