@@ -13,7 +13,7 @@
     "start": "NODE_ENV=production node ssr/index.js",
     "export": "next export",
     "analyze": "ANALYZE=1 next build",
-    "schema:download": "sh -ac 'npx graphql get-schema --endpoint $(grep 'GRAPHQL_API_URL=' .env | cut -d= -f2) --output schema.json'",
+    "schema:download": "sh -ac 'npx apollo schema:download --endpoint=$(grep 'GRAPHQL_API_URL=' .env | cut -d= -f2)'",
     "codegen": "apollo codegen:generate --addTypename --schema=./schema.json  --outputFlat --queries=\"src/**/*.{ts,tsx}\"  API.ts"
   },
   "keywords": [],
@@ -38,7 +38,6 @@
     "cz-customizable": "^5.2.0",
     "dotenv": "^6.0.0",
     "extract-react-intl-messages": "^0.10.0",
-    "graphql-cli": "^2.16.5",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "nodemon": "^1.18.3",
