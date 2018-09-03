@@ -1,4 +1,4 @@
+import { privatePage } from 'src/common'
 import { Dashboard } from 'src/features/dashboard'
-import { privatePage } from 'src/hocs'
 
 export default privatePage(Dashboard)

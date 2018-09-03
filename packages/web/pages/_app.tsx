@@ -4,7 +4,7 @@ import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import { addLocaleData, IntlProvider } from 'react-intl'
 
-import { withApollo } from 'src/hocs'
+import { withApollo } from 'src/common'
 
 // Register React Intl's locale data for the user's locale in the browser. This
 // locale data was added to the page by `pages/_document.js`. This only happens
