@@ -24,7 +24,7 @@ import {
   Label
 } from 'src/ui'
 
-import { storeToken } from '../manage-token'
+import { storeToken } from '../lib'
 
 import { schema } from './schema'
 

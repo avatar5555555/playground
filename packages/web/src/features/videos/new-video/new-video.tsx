@@ -12,14 +12,17 @@ const { title } = defineMessages({
   }
 })
 
-const Recorder = dynamic(import('./recorder'), {
-  ssr: false,
-  loading: () => (
-    <Center>
-      <Spinner />
-    </Center>
-  )
-})
+const Recorder = dynamic(
+  import('./ui/organisms').then((module) => module.Recorder),
+  {
+    ssr: false,
+    loading: () => (
+      <Center>
+        <Spinner />
+      </Center>
+    )
+  }
+)
 
 export class NewVideo extends Component<InjectedIntlProps> {
   render() {
