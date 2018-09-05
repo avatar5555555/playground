@@ -14,6 +14,7 @@ import { Button } from 'smooth-ui'
 
 import styled from 'src/styled-components'
 
+import * as api from 'API'
 import { form, redirect } from 'src/lib'
 import {
   AdaptedInput,
@@ -23,13 +24,13 @@ import {
   Label
 } from 'src/ui'
 
-import { storeToken } from '../lib'
+import { storeToken } from '../../manage-token'
 
 import { schema } from './schema'
 
-const LoginM = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+const SignUpM = gql`
+  mutation signup($data: SignupInput!) {
+    signup(data: $data) {
       token
       user {
         id
@@ -45,21 +46,22 @@ const Buttons = styled.div`
   margin-top: 20px;
 `
 
-export class LoginFormView extends Component<
-  WithApolloClient<{ login: MutationFunc }>
+export class SignUpFormView extends Component<
+  WithApolloClient<{ signup: MutationFunc }>
 > {
-  handleSubmit = async (values) => {
-    const { login } = this.props
+  handleSubmit = async (values: api.SignupInput) => {
+    const { signup } = this.props
 
     try {
-      const { data } = await login({ variables: values })
-      this.handleSuccess(data.login.token)
+      const { data } = await signup({ variables: { data: values } })
+      this.handleSuccess(data.signup.token)
     } catch (error) {
-      return {
-        email: 'credentials are incorrect',
-        password: 'credentials are incorrect'
-      }
+      return this.handleError(error)
     }
+  }
+
+  handleError = ({ graphQLErrors: [{ message }] }) => {
+    return { email: message }
   }
 
   handleSuccess = (token) => {
@@ -81,9 +83,19 @@ export class LoginFormView extends Component<
         {({ handleSubmit, submitting }) => (
           <FormInner onSubmit={handleSubmit}>
             <FormGroup>
+              <Label htmlFor="name">
+                <FormattedMessage id="signup.nameLabel" defaultMessage="name" />
+              </Label>
+
+              <Field control id="name" name="name" component={AdaptedInput} />
+
+              <FormControlFeedback name="name" />
+            </FormGroup>
+
+            <FormGroup>
               <Label htmlFor="email">
                 <FormattedMessage
-                  id="login.emailLabel"
+                  id="signup.emailLabel"
                   defaultMessage="email"
                 />
               </Label>
@@ -96,7 +108,7 @@ export class LoginFormView extends Component<
             <FormGroup>
               <Label htmlFor="password">
                 <FormattedMessage
-                  id="login.passwordLabel"
+                  id="signup.passwordLabel"
                   defaultMessage="password"
                 />
               </Label>
@@ -115,16 +127,16 @@ export class LoginFormView extends Component<
             <Buttons>
               <Button type="submit" disabled={submitting}>
                 <FormattedMessage
-                  id="login.submit"
-                  defaultMessage="log in now"
+                  id="signup.submit"
+                  defaultMessage="sign up now!"
                 />
               </Button>
 
-              <Link href="/sign-up" prefetch>
+              <Link href="/login" prefetch>
                 <Button type="button" variant="light">
                   <FormattedMessage
-                    id="login.signup"
-                    defaultMessage="or sign up"
+                    id="signup.login"
+                    defaultMessage="or log in"
                   />
                 </Button>
               </Link>
@@ -138,7 +150,7 @@ export class LoginFormView extends Component<
 
 const enhance = compose(
   withApollo,
-  graphql(LoginM, { name: 'login' })
+  graphql(SignUpM, { name: 'signup' })
 )
 
-export const LoginForm = enhance(LoginFormView)
+export const SignUpForm = enhance(SignUpFormView)

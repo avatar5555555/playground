@@ -13,7 +13,7 @@ const { title } = defineMessages({
 })
 
 const Recorder = dynamic(
-  import('./ui/organisms').then((module) => module.Recorder),
+  import('./organisms').then((module) => module.Recorder),
   {
     ssr: false,
     loading: () => (

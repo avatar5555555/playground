@@ -1,1 +1,1 @@
-export { NewVideo } from './new-video'
+export { NewVideo } from './pages'
